@@ -1043,6 +1043,8 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     CAmount nSubsidy = 0;
     int  low = 0;
 
+    nHeight *= 1000; // for test
+
     for( int i = 0; i < STAGES; ++i ){
     	if ( ( low <  (nHeight) ) && ( (nHeight) <=  ISSUE_BLOCK[i] ) ){
     		nSubsidy = ISSUE_PRICE[i] * COIN;
