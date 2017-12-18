@@ -26,8 +26,14 @@ RUN apt-get update && apt-get install -y \
   libevent-dev \
   bsdmainutils
 
+# for qt
+RUN apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
+
 COPY . /c0ban
 WORKDIR /c0ban
+
+# for develop environment
+RUN mkdir /c0ban-block
 
 RUN ./autogen.sh
 RUN ./configure
