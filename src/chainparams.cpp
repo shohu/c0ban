@@ -110,7 +110,7 @@ public:
 
         // Hardfork params
         nZawyLwmaAveragingWindow = 20; // TODO: change to an official value
-        nSwitchLyra2REv2_LWMA = 150; // TODO: change to an official value
+        nSwitchLyra2REv2_LWMA = 110; // TODO: change to an official value
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
