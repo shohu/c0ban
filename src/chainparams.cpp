@@ -109,8 +109,8 @@ public:
         consensus.defaultAssumeValid = uint256S("0x00");
 
         // Hardfork params
-        nZawyLwmaAveragingWindow = 20; // TODO: change to an official value
-        nSwitchLyra2REv2_LWMA = 110; // TODO: change to an official value
+        nZawyLwmaAveragingWindow = 60; // TODO: change to an official value
+        nSwitchLyra2REv2_LWMA = 5400; // TODO: change to an official value
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
