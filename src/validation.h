@@ -17,7 +17,9 @@
 #include "protocol.h" // For CMessageHeader::MessageStartChars
 #include "policy/feerate.h"
 #include "script/script_error.h"
+#include "script/standard.h"
 #include "sync.h"
+#include "txdb.h"
 #include "versionbits.h"
 
 #include <algorithm>
@@ -132,6 +134,7 @@ static const bool DEFAULT_PERMIT_BAREMULTISIG = true;
 // TODO(shohu): set DEFAULT_CHECKPOINTS_ENABLED to false because it is necessary to adjust the parameter and test it
 static const bool DEFAULT_CHECKPOINTS_ENABLED = false;
 static const bool DEFAULT_TXINDEX = false;
+static const bool DEFAULT_ADDRINDEX = false;
 static const unsigned int DEFAULT_BANSCORE_THRESHOLD = 100;
 /** Default for -persistmempool */
 static const bool DEFAULT_PERSIST_MEMPOOL = true;
@@ -171,6 +174,7 @@ extern std::atomic_bool fImporting;
 extern bool fReindex;
 extern int nScriptCheckThreads;
 extern bool fTxIndex;
+extern bool fAddrIndex;
 extern bool fIsBareMultisigStd;
 extern bool fRequireStandard;
 extern bool fCheckBlockIndex;
@@ -401,6 +405,8 @@ void InitScriptExecutionCache();
 /** Functions for disk access for blocks */
 bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, int nHeight, const Consensus::Params& consensusParams);
 bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus::Params& consensusParams);
+bool ReadTransaction(CTransactionRef tx, const CDiskTxPos &pos, uint256 &hashBlock);
+bool FindTransactionsByDestination(const CTxDestination &dest, std::set<CExtDiskTxPos> &setpos);
 
 /** Functions for validating blocks and updating the block tree */
 
