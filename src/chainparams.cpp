@@ -109,7 +109,7 @@ public:
         consensus.defaultAssumeValid = uint256S("0x00");
 
         // Hardfork params
-        nZawyLwmaAveragingWindow = 10; // TODO: change to an official value
+        nZawyLwmaAveragingWindow = 8;
         nSwitchLyra2REv2_LWMA = 500; // TODO: change to an official value
 
         /**
